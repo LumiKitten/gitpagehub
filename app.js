@@ -101,7 +101,7 @@ async function loadProjects() {
         const repos = await response.json();
 
         const pagesRepos = repos
-            .filter(repo => repo.has_pages && !repo.archived)
+            .filter(repo => repo.has_pages && !repo.archived && repo.name !== 'gitpagehub')
             .sort((a, b) => {
                 const PRIORITY = ['mysite', 'fetchquesttracker', 'swedishprivacyaudit'];
                 const aIndex = PRIORITY.indexOf(a.name);
